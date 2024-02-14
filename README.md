@@ -32,3 +32,6 @@
 - ```select <column_list> from <table_name> [where <condition>];``` Selects data from a table.
 - ```update <table_name> set <column_name>=<new_value> [where <condition>];``` Updates data in a table.
 - ```delete from <table_name> [where <condition>];``` Deletes data from a table.
+
+> [!NOTE]
+> This is just a summary of the commands offered by MariaDB. For more information, please refer to the MariaDB documentation: https://mariadb.com/kb/en/
