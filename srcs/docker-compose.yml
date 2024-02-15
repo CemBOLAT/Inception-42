@@ -8,7 +8,6 @@
 
 version: "3.8"
 
-
 services:
   mariadb:
     container_name: mariadb
@@ -50,22 +49,24 @@ services:
     depends_on:
       - wordpress
     restart: unless-stopped
-  networks:
-    inception:
-      name: inception
-      #driver: bridge # default
-  volumes:
-    wordpress:
-      name: wordpress
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /home/cbolat/data/wordpress
-    mariadb:
-      name: mariadb
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /home/cbolat/data/mariadb
+
+networks:
+  inception:
+    name: inception
+    #driver: bridge # default
+
+volumes:
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/cbolat/data/wordpress
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/cbolat/data/mariadb
