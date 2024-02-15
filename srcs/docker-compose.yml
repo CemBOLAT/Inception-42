@@ -1,37 +1,25 @@
-# version
-# services
-# networks
-# volumes
-# secrets
-# configs
-# extensions
-
 version: "3.8"
 
 services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    ports:
-      - "3306:3306"
     env_file:
       - .env
     networks:
       - inception
     volumes:
-      - mariadb:/var/lib/mysql # datas
+      - mariadb:/var/lib/mysql
     restart: unless-stopped
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    ports:
-      - "9000:9000"
     env_file:
       - .env
     networks:
       - inception
     volumes:
-      - wordpress:/var/www/html # datas
+      - wordpress:/var/www/html
     depends_on:
       - mariadb
     restart: unless-stopped
@@ -45,7 +33,7 @@ services:
     networks:
       - inception
     volumes:
-      - wordpress:/var/www/html # datas
+      - wordpress:/var/www/html
     depends_on:
       - wordpress
     restart: unless-stopped
@@ -53,7 +41,7 @@ services:
 networks:
   inception:
     name: inception
-    #driver: bridge # default
+    driver: bridge
 
 volumes:
   wordpress:
