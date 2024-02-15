@@ -24,6 +24,19 @@
 - ```docker network create <network_name>``` Create a New Network
 - ```docker network inspect <network_name>``` Shows details of containers attached to a specific Docker network.
 
+# Docker Compose Commands
+
+Docker Compose is a tool used to define and run multi-container Docker applications. It uses a YAML file to configure the application's services and then creates and manages all necessary containers.
+
+## Docker Compose Basics
+
+### Docker Compose Version
+- ```docker-compose --version``` Displays the version of Docker Compose installed on the system.
+- ```docker-compose -f <file_name.yml>``` Specifies the Docker Compose YAML file to use. By default, it looks for a file named docker-compose.yml.
+-
+
+
+
 # Mariadb
 
 ## Database Connection
