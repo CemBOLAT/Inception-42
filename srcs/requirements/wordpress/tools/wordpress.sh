@@ -1,13 +1,13 @@
 #!/bin/bash
 
-chown -R www-data:www-data /home/www/*;
-chmod -R 777 /home/www/*;  # 777 is not secure, but it's just for testing purposes
+chown -R www-data:www-data /var/www/*;
+chmod -R 777 /var/www/*;  # 777 is not secure, but it's just for testing purposes
 mkdir -p /run/php/;
 touch /run/php/php7.4-fpm.pid;
 
-if [ ! -f /home/www/html/wp-config.php ]; then
-    mkdir -p /home/www/html;
-    cd /home/www/html;
+if [ ! -f /var/www/html/wp-config.php ]; then
+    mkdir -p /var/www/html;
+    cd /var/www/html;
 
     # wp : wordpress cli tool and it's installation
     wp core download --allow-root;
