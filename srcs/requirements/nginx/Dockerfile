@@ -10,6 +10,6 @@ COPY ./tools/nxstart.sh /
 
 RUN chmod +x /nxstart.sh
 
-ENTRYPOINT [ "/nxstart.sh" ]
+ENTRYPOINT [ "/nginx.sh" ]
 
 CMD [ "nginx", "-g", "daemon off;" ]
