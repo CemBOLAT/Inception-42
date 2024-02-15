@@ -7,10 +7,10 @@ EXPOSE 3306
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY ./tools/mariadb.sh /
+COPY ./tools/mariadb.sh /var/
 
-RUN chmod +x /mariadb.sh
+RUN chmod +x /var/mariadb.sh
 
-ENTRYPOINT [ "/mariadb.sh" ]
+ENTRYPOINT [ "/var/mariadb.sh" ]
 
 CMD [ "mariadbd" ]
