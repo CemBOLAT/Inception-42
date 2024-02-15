@@ -6,10 +6,10 @@ EXPOSE 443
 
 COPY ./conf/default /etc/nginx/sites-enabled/
 
-COPY ./tools/nxstart.sh /
+COPY ./tools/nginx.sh /
 
-RUN chmod +x /nxstart.sh
+RUN chmod +x /nginx.sh
 
-ENTRYPOINT [ "/nxstart.sh" ]
+ENTRYPOINT [ "/nginx.sh" ]
 
 CMD [ "nginx", "-g", "daemon off;" ]
