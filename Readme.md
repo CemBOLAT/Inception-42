@@ -18,6 +18,16 @@
 - ```docker images``` List Images
 - ```docker pull <image_name>``` Downloads a specific Docker image.
 - ```docker rmi <image_id>``` Deletes a specific Docker image.
+- ```docker run <image_name>``` RUNS DOCKER IMAGE AS EXAMPLE
+```
+    docker run -d \
+    -p 27017:27017 \
+    -e username=cembo \
+    -e password=1111 \
+    --network mongo-network \
+    --name mongodb \
+    mongo
+```
 
 ## Docker Network Management
 - ```docker network ls``` List Networks
@@ -33,7 +43,13 @@ Docker Compose is a tool used to define and run multi-container Docker applicati
 ### Docker Compose Version
 - ```docker-compose --version``` Displays the version of Docker Compose installed on the system.
 - ```docker-compose -f <file_name.yml>``` Specifies the Docker Compose YAML file to use. By default, it looks for a file named docker-compose.yml.
--
+- ```docker-compose down``` Stops and removes containers, networks, volumes, and images created by docker-compose up.
+- ```docker-compose ps``` Lists all services defined in the docker-compose.yml file along with their status.
+- ```docker-compose start <service_name>``` Starts the specified service.
+- ```docker-compose stop <service_name>``` Stops the specified service.
+- ```docker-compose restart <service_name>``` Restarts the specified service.
+- ```docker-compose logs <service_name>``` Displays log output from the specified service.
+
 
 
 
