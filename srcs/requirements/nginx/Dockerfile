@@ -1,13 +1,15 @@
-FROM debian:latest
+FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y nginx openssl
 
-COPY ./conf/nginx.conf /etc/nginx/sites-available/nginx.conf
+EXPOSE 443
 
-COPY ./tools/nginx.sh /www/nginx.sh
+COPY ./conf/default /etc/nginx/sites-enabled/
 
-RUN chmod +x /www/nginx.sh
+COPY ./tools/nxstart.sh /
 
-ENTRYPOINT [ "/www/nginx.sh" ]
+RUN chmod +x /nxstart.sh
+
+ENTRYPOINT [ "/nxstart.sh" ]
 
 CMD [ "nginx", "-g", "daemon off;" ]
