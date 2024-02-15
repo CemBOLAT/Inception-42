@@ -1,11 +1,28 @@
 # Inception
 - [Miro](https://miro.com/app/board/uXjVN8m2_4o=/)
 # Project Concept
-- [Docker]()
+- [Docker](#docker)
 - [Mariadb](#mariadb)
 - - [Conf](#conf)
 - [Nginx]()
 - [WordPress]()
+
+# Docker
+## General Commands
+- ```docker ps``` List Docker Containers
+- ```docker ps -a``` List all Docker Containers (running and stopped)
+- ```docker start <container_id>``` Start a Docker Container
+- ```docker stop <container_id>``` Stop a Docker Container
+  
+## Docker Image Management
+- ```docker images``` List Images
+- ```docker pull <image_name>``` Downloads a specific Docker image.
+- ```docker rmi <image_id>``` Deletes a specific Docker image.
+
+## Docker Network Management
+- ```docker network ls``` List Networks
+- ```docker network create <network_name>``` Create a New Network
+- ```docker network inspect <network_name>``` Shows details of containers attached to a specific Docker network.
 
 # Mariadb
 
