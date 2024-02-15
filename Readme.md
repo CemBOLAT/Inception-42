@@ -19,7 +19,7 @@
 - ```docker pull <image_name>``` Downloads a specific Docker image.
 - ```docker rmi <image_id>``` Deletes a specific Docker image.
 - ```docker run <image_name>``` RUNS DOCKER IMAGE AS EXAMPLE
-```
+-- ```
     docker run -d \
     -p 27017:27017 \
     -e username=cembo \
@@ -27,7 +27,7 @@
     --network mongo-network \
     --name mongodb \
     mongo
-```
+    ```
 
 ## Docker Network Management
 - ```docker network ls``` List Networks

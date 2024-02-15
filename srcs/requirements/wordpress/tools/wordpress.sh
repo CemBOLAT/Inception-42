@@ -12,9 +12,9 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     wp core download --allow-root;
 
     wp config create --allow-root \
-        --dbname=$DB_NAME \
-        --dbuser=$DB_USER \
-        --dbpass=$DB_PASS \
+        --dbname=$MYSQL_ROOT_PASSWORD \
+        --dbuser=$MYSQL_USER \
+        --dbpass=$MYSQL_PASSWORD \
         --dbhost=mariadb;
 
     echo "WordPress installation has started. Wait until the installation is completed."
@@ -27,8 +27,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --admin_email=$ADMIN_MAIL;
 
     wp user create --allow-root \
-        $DB_USER $DB_MAIL \
-        --user_pass=$DB_PASS;
+        $MYSQL_USER $DB_MAIL \
+        --user_pass=$MYSQL_PASSWORD;
 fi
 
 echo "You can visit $DOMAIN_NAME in your browser."
