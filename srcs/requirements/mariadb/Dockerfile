@@ -4,10 +4,10 @@ RUN apt-get update && apt-get install -y mariadb-server
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-COPY ./tools/mariadb.sh /var/
+COPY ./tools/mariadb.sh /home/
 
-RUN chmod +x /var/mariadb.sh
+RUN chmod +x /home/mariadb.sh
 
 EXPOSE 3306
 
-ENTRYPOINT ["/var/mariadb.sh"]
+ENTRYPOINT ["/home/mariadb.sh"]
