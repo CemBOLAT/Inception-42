@@ -6,10 +6,10 @@ EXPOSE 443
 
 COPY ./conf/nginx.conf /etc/nginx/sites-enabled/
 
-COPY ./tools/nginx.sh /
+COPY ./tools/nginx.sh /var/
 
-RUN chmod +x /nginx.sh
+RUN chmod +x /var/nginx.sh
 
-ENTRYPOINT [ "/nginx.sh" ]
+ENTRYPOINT [ "/var/nginx.sh" ]
 
 CMD [ "nginx", "-g", "daemon off;" ]
