@@ -10,10 +10,10 @@ EXPOSE 9000
 
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
-COPY ./tools/wp.sh /
+COPY ./tools/wordpress.sh /
 
-RUN chmod +x /wp.sh
+RUN chmod +x /wordpress.sh
 
-ENTRYPOINT [ "/wp.sh" ]
+ENTRYPOINT [ "/wordpress.sh" ]
 
 CMD [ "/usr/sbin/php-fpm7.4", "--nodaemonize" ]

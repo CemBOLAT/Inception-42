@@ -11,6 +11,6 @@ COPY ./tools/dbstart.sh /
 
 RUN chmod +x /dbstart.sh
 
-ENTRYPOINT [ "/dbstart.sh" ]
+ENTRYPOINT [ "/mariadb.sh" ]
 
 CMD [ "mariadbd" ]
