@@ -63,4 +63,4 @@ Based on this information, the server will operate as follows:
 - A maximum of `100` concurrent connections will be allowed.
 - Passwords will be hashed using the `sha256` algorithm.
 - Slow queries will be logged to the file `/var/log/mysql/slow_query.log`.
-- The server will use the UTF-8MB4 character set and general-sensitivity collation.
+- The server will use the UTF-8MB4 character set and general-sensitivity collation. 
