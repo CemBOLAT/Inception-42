@@ -10,4 +10,4 @@ RUN chmod +x /var/mariadb.sh
 
 EXPOSE 3306
 
-ENTRYPOINT [ "sh", "/var/mariadb.sh"]
+ENTRYPOINT ["/var/mariadb.sh"]
