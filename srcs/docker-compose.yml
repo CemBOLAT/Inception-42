@@ -50,11 +50,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /var/cbolat/data/wordpress
+      device: /home/cbolat/data/wordpress
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /var/cbolat/data/mariadb
+      device: /home/cbolat/data/mariadb
