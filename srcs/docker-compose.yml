@@ -37,6 +37,18 @@ services:
     depends_on:
       - wordpress
     restart: unless-stopped
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    env_file:
+      - .env
+    networks:
+      - inception
+    volumes:
+      - redis:/data
+    depends_on:
+      - wordpress
+    restart: unless-stopped
 
 networks:
   inception:
@@ -58,3 +70,10 @@ volumes:
       type: none
       o: bind
       device: /home/cbolat/data/mariadb
+  redis:
+    name: redis
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/cbolat/data/redis

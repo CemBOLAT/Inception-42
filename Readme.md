@@ -13,7 +13,7 @@
 - ```docker ps -a``` List all Docker Containers (running and stopped)
 - ```docker start <container_id>``` Start a Docker Container
 - ```docker stop <container_id>``` Stop a Docker Container
-  
+
 ## Docker Image Management
 - ```docker images``` List Images
 - ```docker pull <image_name>``` Downloads a specific Docker image.
@@ -109,4 +109,4 @@ Based on this information, the server will operate as follows:
 - A maximum of `100` concurrent connections will be allowed.
 - Passwords will be hashed using the `sha256` algorithm.
 - Slow queries will be logged to the file `/var/log/mysql/slow_query.log`.
-- The server will use the UTF-8MB4 character set and general-sensitivity collation. 
+- The server will use the UTF-8MB4 character set and general-sensitivity collation.
