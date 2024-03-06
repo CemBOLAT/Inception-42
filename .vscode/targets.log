@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Tue Mar  5 20:09:17 2024
+# Make data base, printed on Thu Mar  7 01:19:45 2024
 
 # Variables
 
@@ -28,7 +28,7 @@ CURDIR := /Users/cembolat/Desktop/incaption
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"tr","osLocale":"tr-tr","availableLanguages":{"*":"tr"},"_languagePackId":"d13485cf07d01ed19e08f27641859958.tr","_translationsConfigFile":"/Users/cembolat/Library/Application Support/Code/clp/d13485cf07d01ed19e08f27641859958.tr/tcf.json","_cacheRoot":"/Users/cembolat/Library/Application Support/Code/clp/d13485cf07d01ed19e08f27641859958.tr","_resolvedLanguagePackCoreLocation":"/Users/cembolat/Library/Application Support/Code/clp/d13485cf07d01ed19e08f27641859958.tr/019f4d1419fbc8219a181fab7892ebccf7ee29a2","_corruptedFile":"/Users/cembolat/Library/Application Support/Code/clp/d13485cf07d01ed19e08f27641859958.tr/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"tr","osLocale":"tr-tr","availableLanguages":{"*":"tr"},"_languagePackId":"2652205d5d48d577e022f88000cbb969.tr","_translationsConfigFile":"/Users/cembolat/Library/Application Support/Code/clp/2652205d5d48d577e022f88000cbb969.tr/tcf.json","_cacheRoot":"/Users/cembolat/Library/Application Support/Code/clp/2652205d5d48d577e022f88000cbb969.tr","_resolvedLanguagePackCoreLocation":"/Users/cembolat/Library/Application Support/Code/clp/2652205d5d48d577e022f88000cbb969.tr/019f4d1419fbc8219a181fab7892ebccf7ee29a2","_corruptedFile":"/Users/cembolat/Library/Application Support/Code/clp/2652205d5d48d577e022f88000cbb969.tr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
@@ -142,7 +142,7 @@ CLICOLOR = 1
 # environment
 LANG = C
 # environment
-VSCODE_PID = 15738
+VSCODE_PID = 21757
 # variable set hash-table stats:
 # Load=66/1024=6%, Rehash=0, Collisions=1/92=1%
 
@@ -152,7 +152,7 @@ VSCODE_PID = 15738
 
 # Directories
 
-# . (device 16777234, inode 21440631): 7 files, no impossibilities.
+# . (device 16777234, inode 21546756): 7 files, no impossibilities.
 
 # 7 files, no impossibilities in 1 directories.
 
@@ -167,7 +167,7 @@ stop:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 13):
+#  commands to execute (from `Makefile', line 14):
 	@docker-compose -f srcs/docker-compose.yml stop
 	
 
@@ -203,6 +203,7 @@ all:
 	fi
 	@mkdir -p /home/cbolat/data/wordpress
 	@mkdir -p /home/cbolat/data/mariadb
+	@mkdir -p /home/cbolat/data/redis
 	@docker-compose -f srcs/docker-compose.yml up --build
 	
 
@@ -220,7 +221,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2024-03-04 12:11:43
+#  Last modified 2024-03-06 13:14:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -231,7 +232,7 @@ start:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 10):
+#  commands to execute (from `Makefile', line 11):
 	@docker-compose -f srcs/docker-compose.yml start
 	
 
@@ -239,7 +240,8 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 19):
+#  commands to execute (from `Makefile', line 20):
+	@docker system prun -af
 	@sudo sed -i '/127.0.0.1\tcbolat\.42\.fr/d' /etc/hosts
 	@rm -rf /home/cbolat/data
 	
@@ -255,7 +257,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 16):
+#  commands to execute (from `Makefile', line 17):
 	@docker-compose -f srcs/docker-compose.yml down --volumes
 	
 
@@ -272,6 +274,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Mar  5 20:09:17 2024
+# Finished Make data base on Thu Mar  7 01:19:45 2024
 
  

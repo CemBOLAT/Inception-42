@@ -1,4 +1,0 @@
-ERROR: for redis  Cannot start service redis: error while mounting volume '/var/lib/docker/volumes/redis/_data': failed to mount local volume: mount /home/cbolaCreating nginx     ... done
- directory
-
-ERROR: for redis  Cannot start service redis: error while mounting volume '/var/lib/docker/volumes/redis/_data': failed to mount local volume: mount /home/cbolat/data/redis:/var/lib/docker/volumes/redis/_data, flags: 0x1000: no such file or directory

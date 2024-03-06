@@ -49,6 +49,21 @@ services:
     depends_on:
       - wordpress
     restart: unless-stopped
+  ftp-server:
+    container_name: ftp-server
+    build: ./requirements/bonus/ftp-server
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009" # Passive mode
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - wordpress
+    restart: unless-stopped
 
 networks:
   inception:
