@@ -17,7 +17,7 @@ clean:
 	@docker-compose -f srcs/docker-compose.yml down --volumes
 
 fclean: clean
-	@docker system prun -af
+	@docker system prune -af
 	@sudo sed -i '/127.0.0.1\tcbolat\.42\.fr/d' /etc/hosts
 	@rm -rf /home/cbolat/data
 
