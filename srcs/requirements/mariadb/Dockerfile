@@ -9,14 +9,14 @@ EXPOSE 3306
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY ./tools/mariadb.sh /var/
-
-ENV DB_NAME=db_inception
-ENV DB_USER=user_inception
-ENV DB_PASS=pass_inception
-ENV DB_MAIL=cbolat@42.fr
-
 WORKDIR /var/
+
+COPY ./tools/mariadb.sh .
+
+#ENV DB_NAME=db_inception
+#ENV DB_USER=user_inception
+#ENV DB_PASS=pass_inception
+#ENV DB_MAIL=cbolat@42.fr
 
 RUN chmod +x ./mariadb.sh
 

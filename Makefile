@@ -4,6 +4,7 @@ all:
     fi
 	@mkdir -p /home/cbolat/data/wordpress
 	@mkdir -p /home/cbolat/data/mariadb
+	@mkdir -p /home/cbolat/data/redis
 	@docker-compose -f srcs/docker-compose.yml up --build
 
 start:
@@ -16,6 +17,7 @@ clean:
 	@docker-compose -f srcs/docker-compose.yml down --volumes
 
 fclean: clean
+	@docker system prun -af
 	@sudo sed -i '/127.0.0.1\tcbolat\.42\.fr/d' /etc/hosts
 	@rm -rf /home/cbolat/data
 
