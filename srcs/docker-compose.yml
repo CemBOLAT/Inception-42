@@ -45,7 +45,7 @@ services:
     networks:
       - inception
     volumes:
-      - redis:/data
+      - wordpress:/var/www/html
     depends_on:
       - wordpress
     restart: unless-stopped
@@ -84,10 +84,3 @@ volumes:
       type: none
       o: bind
       device: /home/cbolat/data/mariadb
-  redis:
-    name: redis
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/cbolat/data/redis
