@@ -8,7 +8,7 @@ ARG GRAFANA_URL="https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_a
 # Gerekli paketleri yükle
 RUN apt-get update && \
     apt-get install -y wget && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y libfontconfig1
 
 # Grafana'yı indir ve kur
 RUN wget ${GRAFANA_URL} && \
