@@ -71,6 +71,16 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  grafana:
+    container_name: grafana
+    build: ./requirements/bonus/grafana
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    networks:
+      - inception
+    restart: unless-stopped
 
 networks:
   inception:
