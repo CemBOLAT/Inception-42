@@ -10,7 +10,10 @@ RUN apt-get update && \
     apt-get install -y wget && \
     rm -rf /var/lib/apt/lists/*
 
-# Adminer'i indir
+# Adminer için dizini oluştur
+RUN mkdir -p /var/www
+
+# Adminer'i indir ve /var/www dizinine kopyala
 RUN wget -O /var/www/index.php ${ADMINER_URL}
 
 # Expose the port
