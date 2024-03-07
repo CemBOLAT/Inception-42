@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Adminer'i indir
-RUN wget -O /var/www/adminer.php "${ADMINER_URL}"
+RUN wget -O /var/www/index.php ${ADMINER_URL}
 
 # Expose the port
 EXPOSE 8080
