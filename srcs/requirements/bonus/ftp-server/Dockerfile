@@ -8,6 +8,9 @@ EXPOSE 21
 
 WORKDIR /var/
 
+ENV FTP_USER=ftpuser
+ENV FTP_PASS=ftppass
+
 COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 
 COPY ./tools/ftp.sh .
