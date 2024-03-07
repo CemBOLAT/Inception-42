@@ -56,14 +56,12 @@ services:
       - .env
     ports:
       - "21:21"
+      - "20:20"
       - "30000-30009:30000-30009" # Passive mode
     networks:
       - inception
     volumes:
       - wordpress:/var/www/html
-    depends_on:
-      - wordpress
-      - mariadb
     restart: unless-stopped
 
 networks:
