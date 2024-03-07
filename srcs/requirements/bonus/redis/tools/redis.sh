@@ -7,13 +7,7 @@ sed -i "s|# maxmemory-policy noeviction|maxmemory-policy allkeys-lru|g" /etc/red
 
 echo 'vm.overcommit_memory=1' >> /etc/sysctl.conf
 
-# Remounting the file system as read-write
-mount -o remount,rw /sys/kernel/mm/transparent_hugepage
-
-# Writing to the enabled file
-echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
-
 # Adding the command to /etc/rc.local
-echo 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' >> /etc/rc.local
+echo 'never' >> /etc/rc.local
 
 redis-server --protected-mode no
