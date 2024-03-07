@@ -63,6 +63,14 @@ services:
     volumes:
       - wordpress:/var/www/html
     restart: unless-stopped
+  adminer:
+    container_name: adminer
+    image: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: unless-stopped
 
 networks:
   inception:
