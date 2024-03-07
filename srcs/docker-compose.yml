@@ -63,6 +63,7 @@ services:
       - wordpress:/var/www/html
     depends_on:
       - wordpress
+      - mariadb
     restart: unless-stopped
 
 networks:
