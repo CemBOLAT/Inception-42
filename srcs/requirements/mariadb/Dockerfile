@@ -13,10 +13,10 @@ WORKDIR /var/
 
 COPY ./tools/mariadb.sh .
 
-#ENV DB_NAME=db_inception
-#ENV DB_USER=user_inception
-#ENV DB_PASS=pass_inception
-#ENV DB_MAIL=cbolat@42.fr
+ENV DB_NAME=db_inception
+ENV DB_USER=cbolat
+ENV DB_PASS=1111
+ENV DB_MAIL=cbolat@42.fr
 
 RUN chmod +x ./mariadb.sh
 
