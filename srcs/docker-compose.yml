@@ -69,6 +69,16 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  static_site:
+    container_name: static_site
+    build: ./requirements/bonus/static_site
+    env_file:
+      - .env
+    ports:
+      - "3030:3030"
+    networks:
+      - inception
+    restart: unless-stopped
 networks:
   inception:
     name: inception
