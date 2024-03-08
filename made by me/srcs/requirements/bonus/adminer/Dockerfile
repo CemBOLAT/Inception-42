@@ -7,7 +7,7 @@ ARG ADMINER_URL="https://www.adminer.org/static/download/${ADMINER_VERSION}/admi
 
 # Gerekli paketleri yükle
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y wget php-cli && \
     rm -rf /var/lib/apt/lists/*
 
 # Adminer için dizini oluştur

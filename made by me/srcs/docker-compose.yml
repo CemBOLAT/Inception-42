@@ -42,6 +42,8 @@ services:
     build: ./requirements/bonus/redis
     env_file:
       - .env
+    ports:
+      - "6379:6379"
     networks:
       - inception
     volumes:
@@ -49,23 +51,9 @@ services:
     depends_on:
       - wordpress
     restart: unless-stopped
-  ftp-server:
-    container_name: ftp-server
-    build: ./requirements/bonus/ftp-server
-    env_file:
-      - .env
-    ports:
-      - "21:21"
-      - "20:20"
-      - "30000-30009:30000-30009" # Passive mode
-    networks:
-      - inception
-    volumes:
-      - wordpress:/var/www/html
-    restart: unless-stopped
   adminer:
     container_name: adminer
-    image: adminer
+    build: ./requirements/bonus/adminer
     ports:
       - "8080:8080"
     networks:
@@ -81,17 +69,6 @@ services:
     networks:
       - inception
     restart: unless-stopped
-  static_site:
-    container_name: static_site
-    build: ./requirements/bonus/static_site
-    env_file:
-      - .env
-    ports:
-      - "3030:3030"
-    networks:
-      - inception
-    restart: unless-stopped
-
 networks:
   inception:
     name: inception
