@@ -6,16 +6,9 @@ RUN apt-get install -y vsftpd
 
 EXPOSE 21
 
-WORKDIR /var/
+COPY ./tools/ftp-server.sh /
 
-#ENV FTP_USER=ftpuser
-#ENV FTP_PASS=ftppass
+RUN chmod +x ./ftp-server.sh
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-
-COPY ./tools/ftp.sh .
-
-RUN chmod +x ftp.sh
-
-ENTRYPOINT [ "./ftp.sh" ]
+ENTRYPOINT [ "./ftp-server.sh" ]
 

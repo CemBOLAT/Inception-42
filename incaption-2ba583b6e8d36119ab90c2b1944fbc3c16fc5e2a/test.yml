@@ -1,7 +1,0 @@
-version '3.1'
-
-services:
-  mongodb: # service name
-    image: # image name
-    ports: # port mapping 
-      - "27017:27017" # host:container

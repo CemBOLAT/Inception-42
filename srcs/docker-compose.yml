@@ -79,6 +79,19 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  ftp-server:
+    container_name: ftp-server
+    build: ./requirements/bonus/ftp-server
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+      - "20:20"
+      - "40000-40005:40000-40005"
+    networks:
+      - inception
+    restart: unless-stopped
+
 networks:
   inception:
     name: inception
