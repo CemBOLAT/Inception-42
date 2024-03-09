@@ -47,7 +47,7 @@ services:
     networks:
       - inception
     volumes:
-      - wordpress:/var/www/html
+      - redis:/data
     depends_on:
       - wordpress
     restart: unless-stopped
