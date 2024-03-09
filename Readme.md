@@ -110,3 +110,16 @@ Based on this information, the server will operate as follows:
 - Passwords will be hashed using the `sha256` algorithm.
 - Slow queries will be logged to the file `/var/log/mysql/slow_query.log`.
 - The server will use the UTF-8MB4 character set and general-sensitivity collation.
+
+
+### FTP-TEST
+ftp <ftp-server-ip>
+### Grafana test
+grafana için admin admin
+### redis test
+docker exec -it redis_container_id_or_name redis-cli
+PING
+SET mykey "Hello"
+GET mykey
+### adminer test
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' adminer

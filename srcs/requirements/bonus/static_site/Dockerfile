@@ -12,5 +12,7 @@ WORKDIR /home/app
 RUN npm init -y && \
     npm install express
 
-CMD ["node", "app.js"]
+ENTRYPOINT ["node"]
+
+CMD ["app.js"]
 

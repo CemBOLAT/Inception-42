@@ -34,10 +34,11 @@ pasv_min_port=40000
 pasv_max_port=40005
 userlist_file=/etc/vsftpd.userlist" >>/etc/vsftpd.conf
 
-# Ensure vsftpd is running
 if ! service vsftpd status >/dev/null; then
     echo "vsftpd service is not running. Starting..."
-    service vsftpd start
+    service vsftpd starta
 else
     echo "vsftpd service is already running."
 fi
+
+exec "$@"
