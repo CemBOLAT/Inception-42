@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Start vsftpd
-service vsftpd start
-
-sleep 2
-
 # Add the USER if it doesn't exist
 if ! id "$FTP_USER" &>/dev/null; then
     adduser --disabled-password --gecos "" $FTP_USER
