@@ -36,9 +36,7 @@ userlist_file=/etc/vsftpd.userlist" >>/etc/vsftpd.conf
 
 if ! service vsftpd status >/dev/null; then
     echo "vsftpd service is not running. Starting..."
-    service vsftpd starta
+    vsftpd /etc/vsftpd.conf
 else
     echo "vsftpd service is already running."
 fi
-
-exec "$@"
