@@ -39,4 +39,5 @@ if ! service vsftpd status >/dev/null; then
     exec "$@"
 else
     echo "vsftpd service is already running."
+    exec "$@"
 fi
