@@ -14,4 +14,6 @@ RUN chmod +x ./ftp-server.sh
 
 ENTRYPOINT [ "./ftp-server.sh" ]
 
-CMD [ "/usr/sbin/vsftpd", "/etc/vsftpd.conf" ]
+# how to work foregroun with vsftpd
+# works is to run vsftpd with the -obackground=no option 
+CMD [ "/usr/sbin/vsftpd", "/etc/vsftpd.conf", "-obackground=no" ]
