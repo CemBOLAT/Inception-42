@@ -8,7 +8,7 @@ EXPOSE 21
 
 COPY ./tools/ftp-server.sh /
 
-COPY ./config/vsftpd.conf /etc/vsftpd.conf
+COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 
 RUN chmod +x ./ftp-server.sh
 
