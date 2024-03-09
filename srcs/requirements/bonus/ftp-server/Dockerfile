@@ -1,19 +1,10 @@
-FROM debian:oldstable-slim
+FROM alpine:3.13
 
-RUN apt-get update
-RUN apt-get clean
-RUN apt-get install -y vsftpd
+RUN apk update && apk upgrade && apk add --no-cache \
+        vsftpd
 
-EXPOSE 21
+COPY conf/vsftpd.conf /tmp/vsftpd.conf
 
-COPY ./tools/ftp-server.sh /
+COPY tools/server_ftp.sh /tmp/server_ftp.sh
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-
-RUN chmod +x ./ftp-server.sh
-
-ENTRYPOINT [ "./ftp-server.sh" ]
-
-# how to work foregroun with vsftpd
-# works is to run vsftpd with the -obackground=no option 
-CMD [ "/usr/sbin/vsftpd", "/etc/vsftpd.conf", "-obackground=no" ]
+ENTRYPOINT ["sh", "/tmp/server_ftp.sh"]
