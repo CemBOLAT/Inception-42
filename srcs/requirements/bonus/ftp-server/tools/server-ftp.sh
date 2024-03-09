@@ -23,22 +23,4 @@ if [ ! -d "/home/$FTP_USER/ftp/files" ]; then
     chown $FTP_USER:$FTP_USER /home/$FTP_USER/ftp/files
 fi
 
-# Modify vsftpd configuration
-sed -i -r "s/#write_enable=YES/write_enable=YES/1" /etc/vsftpd.conf
-sed -i -r "s/#chroot_local_user=YES/chroot_local_user=YES/1" /etc/vsftpd.conf
-echo "
-local_enable=YES
-allow_writeable_chroot=YES
-pasv_enable=YES
-local_root=/home/$FTP_USER/ftp
-pasv_min_port=21000
-pasv_max_port=21010
-userlist_file=/etc/vsftpd.userlist" >>/etc/vsftpd.conf
-
-if ! service vsftpd status >/dev/null; then
-    echo "vsftpd service is not running. Starting..."
-    exec "$@"
-else
-    echo "vsftpd service is already running."
-    exec "$@"
-fi
+exec "$@"
