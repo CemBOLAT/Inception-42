@@ -1,5 +1,5 @@
 version: "3.8"
-
+# mariadb, wordpress, nginx, redis, adminer, grafana, static_site, ftp-server
 services:
   mariadb:
     container_name: mariadb
@@ -118,6 +118,6 @@ volumes:
     name: redis
     driver: local
     driver_opts:
-      type: none
-      o: bind
+      type: none 
+      o: bind 
       device: /home/cbolat/data/redis

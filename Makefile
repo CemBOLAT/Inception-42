@@ -1,4 +1,5 @@
 all:
+	# Add cbolat.42.fr to /etc/hosts
 	@if ! grep -q 'cbolat\.42\.fr' /etc/hosts; then \
         sudo sed -i '1s/^/127.0.0.1\tcbolat.42.fr\n/' /etc/hosts; \
     fi
