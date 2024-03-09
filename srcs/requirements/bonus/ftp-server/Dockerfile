@@ -14,5 +14,3 @@ COPY ./tools/ftp-server.sh /
 RUN chmod +x ./ftp-server.sh
 
 ENTRYPOINT [ "./ftp-server.sh" ]
-
-CMD ["tail", "-f", "/dev/null"]
