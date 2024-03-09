@@ -1,17 +1,8 @@
-FROM debian:oldstable-slim
+FROM alpine:3.17
 
-RUN apt-get update
-RUN apt-get clean
-RUN apt-get install -y vsftpd
+RUN apk -U upgrade && apk add vsftpd shadow
 
-EXPOSE 21
+COPY tool/ftp-server.sh /etc/.
+COPY conf/vsftpd.conf /etc/vsftpd/.
 
-COPY ./tools/ftp-server.sh /
-
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-
-RUN chmod +x ./ftp-server.sh
-
-ENTRYPOINT [ "./ftp-server.sh" ]
-
-CMD [ "/usr/sbin/vsftpd", "/etc/vsftpd.conf" ]
+ENTRYPOINT ["sh", "/etc/ftp-server.sh"]
