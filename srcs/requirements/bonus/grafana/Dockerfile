@@ -18,6 +18,8 @@ RUN wget ${GRAFANA_URL} && \
 # Expose Grafana port
 EXPOSE 3000
 
+ENTRYPOINT [ "grafana-server" ]
+
 # Default command to run when starting the container
-CMD ["grafana-server", "--homepath=/usr/share/grafana", "--config=/etc/grafana/grafana.ini", "--packaging=docker", "cfg:default.log.mode=console", "cfg:default.paths.data=/var/lib/grafana", "cfg:default.paths.logs=/var/log/grafana"]
+CMD ["--homepath=/usr/share/grafana", "--config=/etc/grafana/grafana.ini", "--packaging=docker", "cfg:default.log.mode=console", "cfg:default.paths.data=/var/lib/grafana", "cfg:default.paths.logs=/var/log/grafana"]
 

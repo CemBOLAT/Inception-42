@@ -10,4 +10,4 @@ echo 'vm.overcommit_memory=1' >> /etc/sysctl.conf
 # Adding the command to /etc/rc.local
 echo 'never' >> /etc/rc.local
 
-redis-server --protected-mode no
+exec "$@"

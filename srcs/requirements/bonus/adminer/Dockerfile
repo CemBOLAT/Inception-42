@@ -20,4 +20,5 @@ RUN wget -O /var/www/index.php ${ADMINER_URL}
 EXPOSE 8080
 
 # Default command to run when starting the container
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/"]
+ENTRYPOINT [ "php" ]
+CMD ["-S", "0.0.0.0:8080", "-t", "/var/www/"]
