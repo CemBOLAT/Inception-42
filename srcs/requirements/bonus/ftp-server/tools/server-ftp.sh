@@ -6,7 +6,6 @@ service vsftpd start
 # Add the USER if it doesn't exist
 if ! id "$FTP_USER" &>/dev/null; then
     adduser --disabled-password --gecos "" $FTP_USER
-    echo "$FTP_USER:$FTP_PASS" | chpasswd
     echo "$FTP_USER" | tee -a /etc/vsftpd.userlist
 fi
 
@@ -30,8 +29,8 @@ local_enable=YES
 allow_writeable_chroot=YES
 pasv_enable=YES
 local_root=/home/$FTP_USER/ftp
-pasv_min_port=21000
-pasv_max_port=21010
+pasv_min_port=5000
+pasv_max_port=5010
 userlist_file=/etc/vsftpd.userlist" >>/etc/vsftpd.conf
 
 if ! service vsftpd status >/dev/null; then

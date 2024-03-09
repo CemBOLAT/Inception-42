@@ -8,8 +8,6 @@ EXPOSE 21
 
 COPY ./tools/ftp-server.sh /
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-
 RUN chmod +x ./ftp-server.sh
 
 ENTRYPOINT [ "./ftp-server.sh" ]
