@@ -1,5 +1,5 @@
 adduser --disabled-password "$FTP_USER"
-echo "$FTP_USER":"$FTP_PASSWORD" | chpasswd
+echo "$FTP_USER":"$FTP_PASS" | chpasswd
 
 usermod --home /var/www/cbolat.42.fr/ "$FTP_USER"
 chown "$FTP_USER":"$FTP_USER" /var/www/cbolat.42.fr/
