@@ -6,6 +6,8 @@ RUN apt-get install -y vsftpd
 
 EXPOSE 21
 
+ENV FTP_USER=ftpuser
+
 COPY ./tools/ftp-server.sh /
 
 COPY ./conf/vsftpd.conf /etc/vsftpd.conf
