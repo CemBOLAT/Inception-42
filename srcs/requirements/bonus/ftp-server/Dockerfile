@@ -10,8 +10,6 @@ ENV FTP_USER=ftpuser
 
 COPY ./tools/ftp-server.sh /
 
-COPY ./conf/vsftpd.conf /etc/vsftpd.conf
-
 RUN chmod +x ./ftp-server.sh
 
 ENTRYPOINT [ "./ftp-server.sh" ]
