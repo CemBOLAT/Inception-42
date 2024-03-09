@@ -19,6 +19,7 @@ clean:
 
 fclean: clean
 	@docker system prune -af
+	@sudo lsof -i :21
 	@sudo sed -i '/127.0.0.1\tcbolat\.42\.fr/d' /etc/hosts
 	@rm -rf /home/cbolat/data
 
