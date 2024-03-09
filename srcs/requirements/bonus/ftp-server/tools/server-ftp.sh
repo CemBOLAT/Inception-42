@@ -1,23 +1,43 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ ! -f "/etc/vsftpd/vsftpd.conf.bak" ]; then
+# Start vsftpd
+service vsftpd start
 
-    mkdir -p /var/www/html
-
-    cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
-    mv /tmp/vsftpd.conf /etc/vsftpd/vsftpd.conf
-
-    # Yeni kullanıcı ekle
-    adduser $FTP_USR --disabled-password
-    echo "$FTP_USR:$FTP_PWD" | /usr/sbin/chpasswd &> /dev/null
-    # Dosya üzerindeki kullanıcı yetkisi
-    chown -R $FTP_USR:$FTP_USR /var/www/html
-
-    # env'den FTP_USR değerini alıp vsftpd.userlist dosyasına yazar
-    echo $FTP_USR | tee -a /etc/vsftpd.userlist &> /dev/null
-
+# Add the USER if it doesn't exist
+if ! id "$FTP_USER" &>/dev/null; then
+    adduser --disabled-password --gecos "" $FTP_USER
+    echo "$FTP_USER:$FTP_PASS" | chpasswd
+    echo "$FTP_USER" | tee -a /etc/vsftpd.userlist
 fi
 
-# vsftpd başlat
-echo "FTP started on :21"
-/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+# Set up directories if they don't exist
+if [ ! -d "/home/$FTP_USER/ftp" ]; then
+    mkdir /home/$FTP_USER/ftp
+    chown nobody:nogroup /home/$FTP_USER/ftp
+    chmod a-w /home/$FTP_USER/ftp
+fi
+
+if [ ! -d "/home/$FTP_USER/ftp/files" ]; then
+    mkdir /home/$FTP_USER/ftp/files
+    chown $FTP_USER:$FTP_USER /home/$FTP_USER/ftp/files
+fi
+
+# Modify vsftpd configuration
+sed -i -r "s/#write_enable=YES/write_enable=YES/1" /etc/vsftpd.conf
+sed -i -r "s/#chroot_local_user=YES/chroot_local_user=YES/1" /etc/vsftpd.conf
+echo "
+local_enable=YES
+allow_writeable_chroot=YES
+pasv_enable=YES
+local_root=/home/$FTP_USER/ftp
+pasv_min_port=21000
+pasv_max_port=21010
+userlist_file=/etc/vsftpd.userlist" >>/etc/vsftpd.conf
+
+if ! service vsftpd status >/dev/null; then
+    echo "vsftpd service is not running. Starting..."
+    exec "$@"
+else
+    echo "vsftpd service is already running."
+    exec "$@"
+fi
