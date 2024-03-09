@@ -12,4 +12,4 @@ RUN chmod +x ./ftp-server.sh
 
 ENTRYPOINT [ "./ftp-server.sh" ]
 
-CMD [ "vsftpd", "/etc/vsftpd.conf" ]
+CMD [ "/usr/sbin/vsftpd", "/etc/vsftpd.conf" ]
