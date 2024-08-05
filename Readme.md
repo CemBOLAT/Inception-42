@@ -31,6 +31,7 @@
 <li><a href="#grafana-test">Grafana Test</a></li>
 <li><a href="#redis-test">Redis Test</a></li>
 <li><a href="#adminer-test">Adminer Test</a></li>
+<li><a href="#licence">Licence</a></li>
 </ul>
 
 <h2 id="docker">Docker</h2>
@@ -149,3 +150,6 @@ GET mykey
 <h2 id="adminer-test">Adminer Test</h2>
 <p>Adminer is a full-featured database management tool written in PHP. To get the IP address of the Adminer container:</p>
 <pre><code>docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' adminer</code></pre>
+
+<h2 id="licence">Licence</h2>
+<p>This project is licensed under the MIT License - see the <a href="https://opensource.org/licenses/MIT">MIT License</a> for details.</p>
